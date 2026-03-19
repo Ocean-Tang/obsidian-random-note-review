@@ -1,10 +1,11 @@
 // main.ts - 插件主入口
 
-import { Plugin, Notice, TFile, WorkspaceLeaf } from "obsidian";
+import { Plugin, Notice, TFile } from "obsidian";
 import { PluginSettings, DrawRecord, PluginData } from "./src/types";
 import { DEFAULT_SETTINGS } from "./src/defaults";
 import { NotePicker } from "./src/picker";
 import { RandomNoteReviewSettingTab } from "./src/settings";
+import { RecentHistoryModal } from "./src/historyModal";
 import { todayStr, daysBetween } from "./src/utils";
 
 export default class RandomNoteReviewPlugin extends Plugin {
@@ -25,6 +26,13 @@ export default class RandomNoteReviewPlugin extends Plugin {
       id: "draw-random-note",
       name: "🎲 随机抽取一篇笔记复习",
       callback: () => this.drawAndOpen(),
+    });
+
+    // 3. 注册「查看最近抽取记录」命令
+    this.addCommand({
+      id: "show-recent-history",
+      name: "📋 查看最近抽取记录",
+      callback: () => this.showHistory(),
     });
 
     // 3. 在状态栏添加按钮
@@ -91,6 +99,29 @@ export default class RandomNoteReviewPlugin extends Plugin {
   private async openNote(file: TFile): Promise<void> {
     const leaf = this.app.workspace.getLeaf("tab");
     await leaf.openFile(file, { active: true });
+  }
+
+  /**
+   * 通过路径打开笔记（供历史弹窗回调使用）。
+   */
+  async openNoteByPath(path: string): Promise<void> {
+    const file = this.app.vault.getAbstractFileByPath(path);
+    if (file instanceof TFile) {
+      await this.openNote(file);
+    } else {
+      new Notice(`⚠️ 找不到笔记：${path}`);
+    }
+  }
+
+  /**
+   * 打开最近抽取记录弹窗。
+   */
+  showHistory(): void {
+    new RecentHistoryModal(
+      this.app,
+      this.drawHistory,
+      (path) => this.openNoteByPath(path)
+    ).open();
   }
 
   // ─── 历史记录管理 ────────────────────────────────────────────────────────────
