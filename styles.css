@@ -73,7 +73,146 @@
   color: var(--text-muted);
 }
 
-/* Setting 组间距优化 */
+/* ── 历史记录弹窗 ────────────────────────────────────────────────── */
+.rnr-history-modal {
+  padding: 4px 0;
+  min-width: 480px;
+}
+
+.rnr-modal-header {
+  margin-bottom: 12px;
+}
+
+.rnr-modal-header h2 {
+  margin: 0 0 4px;
+  font-size: var(--h3-size);
+}
+
+.rnr-modal-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.rnr-modal-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 32px 0;
+  font-size: var(--font-ui-small);
+}
+
+/* 搜索框 */
+.rnr-modal-search-wrap {
+  margin-bottom: 10px;
+}
+
+.rnr-modal-search {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary-alt);
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.rnr-modal-search:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--interactive-accent) 20%, transparent);
+}
+
+/* 列表容器 */
+.rnr-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+/* 单行 */
+.rnr-history-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  border: 1px solid transparent;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.rnr-history-row:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border);
+}
+
+/* 日期标签 */
+.rnr-history-date {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--background-primary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  padding: 1px 7px;
+  white-space: nowrap;
+  min-width: 42px;
+  text-align: center;
+}
+
+.rnr-history-count {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+/* 笔记标题 */
+.rnr-history-title {
+  flex: 1;
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.12s ease;
+}
+
+.rnr-history-title:hover {
+  color: var(--text-accent);
+  text-decoration: underline;
+}
+
+/* 复制按钮 */
+.rnr-copy-btn {
+  flex-shrink: 0;
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+
+.rnr-copy-btn:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.rnr-copy-btn--done {
+  background: var(--color-green) !important;
+  color: #fff !important;
+  border-color: var(--color-green) !important;
+}
+
 .setting-item {
   padding: 12px 0;
 }
