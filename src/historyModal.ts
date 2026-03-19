@@ -14,7 +14,7 @@ interface HistoryEntry {
 export class RecentHistoryModal extends Modal {
   private drawHistory: DrawRecord[];
   /** 点击打开笔记的回调 */
-  private onOpen: (path: string) => void;
+  private onOpenNote: (path: string) => void;
 
   constructor(
     app: App,
@@ -23,7 +23,7 @@ export class RecentHistoryModal extends Modal {
   ) {
     super(app);
     this.drawHistory = drawHistory;
-    this.onOpen = onOpen;
+    this.onOpenNote = onOpen;
   }
 
   onOpen() {
@@ -138,7 +138,7 @@ export class RecentHistoryModal extends Modal {
       titleEl.setText(entry.basename);
       titleEl.setAttr("title", entry.path);
       titleEl.addEventListener("click", () => {
-        this.onOpen(entry.path);
+        this.onOpenNote(entry.path);
         this.close();
       });
 
