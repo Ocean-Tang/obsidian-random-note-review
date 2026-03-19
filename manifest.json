@@ -1,0 +1,10 @@
+{
+  "id": "random-note-review",
+  "name": "Random Note Review",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "随机抽取笔记进行复习，支持排除规则、优先级配置和智能去重。",
+  "author": "Your Name",
+  "authorUrl": "https://github.com/yourname",
+  "isDesktopOnly": false
+}

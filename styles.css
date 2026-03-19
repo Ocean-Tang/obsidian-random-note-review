@@ -1,0 +1,94 @@
+/* styles.css - Random Note Review 插件样式 */
+
+/* ── 状态栏按钮 ──────────────────────────────────────────────────── */
+.rnr-status-btn {
+  cursor: pointer;
+  padding: 0 8px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  font-size: var(--font-ui-small);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rnr-status-btn:hover {
+  background-color: var(--interactive-hover);
+  color: var(--text-on-accent);
+}
+
+.rnr-status-btn:active {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* ── 设置界面 ────────────────────────────────────────────────────── */
+.rnr-desc {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  margin-bottom: 1.2em;
+  line-height: 1.6;
+}
+
+.rnr-section-desc {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  margin: -0.4em 0 0.8em 0;
+  line-height: 1.5;
+}
+
+/* 多行文本框统一样式 */
+.rnr-textarea {
+  width: 100% !important;
+  min-width: 280px;
+  font-family: var(--font-monospace);
+  font-size: var(--font-ui-small);
+  resize: vertical;
+  border-radius: var(--radius-s);
+  background: var(--background-primary-alt);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  padding: 6px 8px;
+  transition: border-color 0.15s ease;
+}
+
+.rnr-textarea:focus {
+  border-color: var(--interactive-accent);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--interactive-accent) 20%, transparent);
+}
+
+/* 统计信息区域 */
+.rnr-stats {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  padding: 12px 16px;
+  margin-top: 8px;
+}
+
+.rnr-stats p {
+  margin: 4px 0;
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+/* Setting 组间距优化 */
+.setting-item {
+  padding: 12px 0;
+}
+
+/* h2 节标题样式强化 */
+.vertical-tab-content h2 {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 6px;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  color: var(--text-accent);
+  font-size: var(--font-ui-medium);
+}
+
+.vertical-tab-content h1 {
+  font-size: var(--h2-size);
+  margin-bottom: 0.3em;
+}
