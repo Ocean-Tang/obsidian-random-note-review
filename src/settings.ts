@@ -178,6 +178,18 @@ export class RandomNoteReviewSettingTab extends PluginSettingTab {
     containerEl.createEl("h2", { text: "数据管理" });
 
     new Setting(containerEl)
+      .setName("查看最近抽取记录")
+      .setDesc("罗列最近抽取过的笔记，可点击打开或复制笔记标题。")
+      .addButton((btn) => {
+        btn
+          .setButtonText("📋 查看记录")
+          .setCta()
+          .onClick(() => {
+            this.plugin.showHistory();
+          });
+      });
+
+    new Setting(containerEl)
       .setName("清除抽取历史")
       .setDesc("清除所有抽取记录（包括今日去重记录和冷却历史），下次抽取将从全库范围重新开始。")
       .addButton((btn) => {
